@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#667eea" />
+    <meta
+      name="description"
+      content="TruAdmin - Database Management Tool for PostgreSQL and Snowflake"
+    />
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon.png" />
+    <title>TruAdmin - Database Management</title>
+
+    <!-- WebSocket suppression - must run FIRST to intercept all WebSocket connections -->
+    <script src="%PUBLIC_URL%/suppress-ws.js"></script>
+
+    <!-- Console message suppression - must run before any other scripts -->
+    <script>
+      (function() {
+        'use strict';
+
+        // Helper to check if message should be suppressed
+        function shouldSuppress(args) {
+          var message = '';
+
+          // Convert all arguments to string
+          for (var i = 0; i < args.length; i++) {
+            if (typeof args[i] === 'string') {
+              message += args[i] + ' ';
+            } else if (args[i] && typeof args[i] === 'object') {
+              try {
+                message += JSON.stringify(args[i]) + ' ';
+              } catch(e) {
+                message += String(args[i]) + ' ';
+              }
+            } else {
+              message += String(args[i]) + ' ';
+            }
+          }
+
+          return (
+            // React DevTools
+            message.indexOf('Download the React DevTools') !== -1 ||
+            message.indexOf('react-devtools') !== -1 ||
+            message.indexOf('reactjs.org/link/react-devtools') !== -1 ||
+            // WebSocket errors
+            message.indexOf('The connection to ws://') !== -1 ||
+            message.indexOf('was interrupted while the page was loading') !== -1 ||
+            message.indexOf('WebSocket connection') !== -1 ||
+            message.indexOf('sockjs-node') !== -1 ||
+            message.indexOf('ws://localhost:3000') !== -1 ||
+            message.indexOf('localhost:3000/ws') !== -1 ||
+            // React warnings
+            message.indexOf('Invalid hook call') !== -1 ||
+            message.indexOf('reactjs.org/link/invalid-hook-call') !== -1 ||
+            message.indexOf('mismatching versions of React') !== -1 ||
+            message.indexOf('breaking the Rules of Hooks') !== -1 ||
+            message.indexOf('more than one copy of React') !== -1 ||
+            // React Router warnings
+            message.indexOf('React Router Future Flag Warning') !== -1 ||
+            message.indexOf('v7_startTransition') !== -1 ||
+            message.indexOf('v7_relativeSplatPath') !== -1 ||
+            message.indexOf('reactrouter.com') !== -1 ||
+            // Source map errors
+            message.indexOf('Source map error') !== -1 ||
+            message.indexOf('installHook.js.map') !== -1 ||
+            message.indexOf('react_devtools_backend') !== -1 ||
+            // Console API disabled warning
+            message.indexOf('Web Console logging API') !== -1 ||
+            message.indexOf('has been disabled by a script') !== -1
+          );
+        }
+
+        // Save original console methods immediately
+        var _log = console.log;
+        var _info = console.info;
+        var _warn = console.warn;
+        var _error = console.error;
+        var _debug = console.debug;
+
+        // Override console methods directly (no Proxy to avoid browser warnings)
+        console.log = function() {
+          if (!shouldSuppress(arguments)) {
+            _log.apply(console, arguments);
+          }
+        };
+
+        console.info = function() {
+          if (!shouldSuppress(arguments)) {
+            _info.apply(console, arguments);
+          }
+        };
+
+        console.warn = function() {
+          if (!shouldSuppress(arguments)) {
+            _warn.apply(console, arguments);
+          }
+        };
+
+        console.error = function() {
+          if (!shouldSuppress(arguments)) {
+            _error.apply(console, arguments);
+          }
+        };
+
+        console.debug = function() {
+          if (!shouldSuppress(arguments)) {
+            _debug.apply(console, arguments);
+          }
+        };
+
+        // Global error handler
+        window.addEventListener('error', function(event) {
+          if (
+            event.message && (
+              event.message.indexOf('WebSocket') !== -1 ||
+              event.message.indexOf('ws://') !== -1 ||
+              event.message.indexOf('Source map') !== -1 ||
+              event.message.indexOf('Invalid hook call') !== -1
+            )
+          ) {
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+          }
+        }, true);
+
+        // Unhandled rejection handler
+        window.addEventListener('unhandledrejection', function(event) {
+          var reason = '';
+          if (event.reason) {
+            reason = event.reason.toString();
+          }
+          if (
+            reason.indexOf('WebSocket') !== -1 ||
+            reason.indexOf('ws://') !== -1
+          ) {
+            event.preventDefault();
+            return false;
+          }
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>

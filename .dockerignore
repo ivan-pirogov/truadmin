@@ -1,0 +1,65 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+docs/
+*.md
+README.md
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node modules (will be installed in container)
+node_modules/
+frontend/node_modules/
+
+# Build artifacts (will be built in container)
+frontend/build/
+backend/bin/
+backend/tmp/
+backend/data/
+
+# Environment files (use environment variables in container)
+.env
+.env.local
+.env.*.local
+backend/.env
+backend/.env.local
+frontend/.env.local
+frontend/.env.development
+
+# Logs
+*.log
+backend/build-errors.log
+
+# Database files
+*.db
+*.db-shm
+*.db-wal
+
+# Air config (not needed in production)
+backend/.air.toml
+
+# Makefile (not needed in container)
+Makefile
+
+# Test files
+*_test.go
+test/
+tests/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+

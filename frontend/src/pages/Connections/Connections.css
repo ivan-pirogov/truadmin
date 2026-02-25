@@ -1,0 +1,284 @@
+/* Header */
+.connections-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.connections-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.connections-title-icon {
+  color: #3b82f6;
+}
+
+.connections-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+/* Button styles moved to unified buttons.css - use .btn-primary class */
+
+/* Loading & Error */
+.loading,
+.error-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.error-message {
+  color: #ef4444;
+}
+
+/* Empty State */
+.connections-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  text-align: center;
+}
+
+.empty-icon {
+  color: #d1d5db;
+  margin-bottom: 24px;
+}
+
+.empty-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 8px 0;
+}
+
+.empty-description {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Grid */
+.connections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 16px;
+}
+
+/* Connection Card */
+.connection-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 400px;
+  min-height: 200px;
+}
+
+.connection-card:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Card Header */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.card-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+  word-break: break-word;
+}
+
+/* Connection Status Icon */
+.connection-status-icon {
+  flex-shrink: 0;
+}
+
+.connection-status-online {
+  color: #10b981;
+}
+
+.connection-status-offline {
+  color: #ef4444;
+}
+
+.connection-status-checking {
+  color: #f59e0b;
+}
+
+.card-type {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.card-type-postgres {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.card-type-mysql {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.card-type-mariadb {
+  background-color: #fce7f3;
+  color: #9f1239;
+}
+
+.card-type-sqlite {
+  background-color: #e0e7ff;
+  color: #3730a3;
+}
+
+.card-type-mssql {
+  background-color: #ddd6fe;
+  color: #5b21b6;
+}
+
+.card-type-snowflake {
+  background-color: #cffafe;
+  color: #155e75;
+}
+
+/* Card Info */
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  background-color: #f9fafb;
+  border-radius: 8px;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.info-label {
+  font-weight: 500;
+  color: #6b7280;
+  min-width: 70px;
+}
+
+.info-value {
+  color: #1f2937;
+  word-break: break-all;
+}
+
+/* Card Actions */
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 6px;
+  border-top: 1px solid #f3f4f6;
+  justify-content: flex-end;
+}
+
+/* Action button styles moved to unified buttons.css */
+/* Use .btn, .btn-primary, .btn-icon, .btn-outline-danger classes */
+.card-actions .btn {
+  font-size: 12px;
+  padding: 6px 10px;
+  min-height: 32px;
+}
+
+.card-actions .btn-primary,
+.card-actions .btn-secondary {
+  flex: 1 1 auto;
+  min-width: fit-content;
+}
+
+.card-actions .btn-icon {
+  flex: 0 0 auto;
+}
+
+/* Footer */
+.connections-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.connections-count {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Rotating animation for refresh button */
+.rotating {
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .connections-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .connections-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-actions {
+    flex-wrap: wrap;
+  }
+
+  .action-btn {
+    min-width: calc(50% - 4px);
+  }
+
+  .action-btn-primary {
+    width: 100%;
+  }
+}

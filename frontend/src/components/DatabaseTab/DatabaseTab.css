@@ -1,0 +1,87 @@
+.database-tab {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--color-white);
+}
+
+.database-tab-header {
+  display: flex;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-md) var(--spacing-lg) 0 var(--spacing-lg);
+  background: var(--color-gray-50);
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.database-subtab {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 10px var(--spacing-lg);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--color-gray-500);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.database-subtab:hover {
+  color: var(--color-gray-700);
+  background: var(--color-gray-100);
+}
+
+.database-subtab.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+  background: var(--color-white);
+}
+
+.database-subtab span {
+  user-select: none;
+}
+
+.database-tab-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-xl);
+  background: var(--color-white);
+}
+
+.database-content {
+  max-width: 1200px;
+}
+
+.database-content h3 {
+  margin: 0 0 var(--spacing-lg) 0;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-800);
+}
+
+.database-content p {
+  color: var(--color-gray-500);
+  font-size: var(--font-size-base);
+  margin: 0;
+}
+
+/* Scrollbar styles */
+.database-tab-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.database-tab-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.database-tab-content::-webkit-scrollbar-thumb {
+  background: var(--color-gray-300);
+  border-radius: 3px;
+}
+
+.database-tab-content::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-400);
+}

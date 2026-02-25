@@ -1,0 +1,20 @@
+version: 1.0
+runtime: docker
+build:
+  commands:
+    build:
+      - echo "Building TruAdmin Docker image..."
+run:
+  runtime-version: latest
+  command: ./truadmin
+  network:
+    port: 80
+    env: SERVER_PORT
+  env:
+    - name: SERVER_PORT
+      value: "80"
+    - name: GIN_MODE
+      value: "release"
+    - name: FRONTEND_BUILD_PATH
+      value: "/app/frontend/build"
+

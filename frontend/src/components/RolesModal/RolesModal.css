@@ -1,0 +1,278 @@
+.roles-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.roles-modal-content {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 1200px;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.roles-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.roles-modal-title {
+  font-size: 24px;
+  color: #333;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.roles-modal-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.roles-modal-close:hover {
+  background: #f5f5f5;
+}
+
+.roles-modal-body {
+  flex: 1;
+  overflow: hidden;
+  padding: 30px;
+}
+
+.roles-loading,
+.roles-error {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+
+.roles-error {
+  color: #d32f2f;
+}
+
+.roles-container {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 30px;
+  height: 100%;
+}
+
+.roles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.roles-list-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.roles-list-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.roles-count {
+  background: #e0e0e0;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+.btn-create-role {
+  margin-left: auto;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.2s;
+}
+
+.btn-create-role:hover {
+  transform: translateY(-2px);
+}
+
+.roles-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+}
+
+.roles-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  max-height: calc(80vh - 200px);
+}
+
+.role-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.role-item:hover {
+  border-color: #667eea;
+  background: #f8f9ff;
+}
+
+.role-item.selected {
+  border-color: #667eea;
+  background: #f0f2ff;
+}
+
+.role-item-icon {
+  background: #f0f2ff;
+  padding: 8px;
+  border-radius: 6px;
+  color: #667eea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.role-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.role-item-name {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.role-item-description {
+  font-size: 12px;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.role-item-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.role-action-btn {
+  background: none;
+  border: 1px solid #e0e0e0;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #666;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.role-action-btn:hover {
+  background: #f5f5f5;
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.role-action-btn.delete:hover {
+  border-color: #d32f2f;
+  color: #d32f2f;
+  background: #fff5f5;
+}
+
+.role-details {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.role-details h3 {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.role-details-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detail-section label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: #666;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.detail-value {
+  color: #333;
+  font-size: 14px;
+}
+
+.permissions-list,
+.users-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.permission-badge,
+.user-badge {
+  background: white;
+  border: 1px solid #e0e0e0;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #333;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.user-badge {
+  background: #f0f2ff;
+  border-color: #667eea;
+  color: #667eea;
+}

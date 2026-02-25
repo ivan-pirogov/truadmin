@@ -1,0 +1,137 @@
+### TruAdmin API Examples
+### Для использования с REST Client (VS Code extension) или аналогичными инструментами
+
+@baseUrl = http://localhost:8080/api/v1
+
+### Health Check
+GET http://localhost:8080/api/health
+
+###
+
+### 1. Создать новое подключение к PostgreSQL
+POST {{baseUrl}}/connections
+Content-Type: application/json
+
+{
+  "name": "Production PostgreSQL",
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "database": "mydb",
+  "username": "postgres",
+  "password": "password",
+  "ssl_mode": "disable"
+}
+
+###
+
+### 2. Создать подключение к MySQL
+POST {{baseUrl}}/connections
+Content-Type: application/json
+
+{
+  "name": "Development MySQL",
+  "type": "mysql",
+  "host": "localhost",
+  "port": 3306,
+  "database": "testdb",
+  "username": "root",
+  "password": "root123",
+  "ssl_mode": "disable"
+}
+
+###
+
+### 3. Получить все подключения
+GET {{baseUrl}}/connections
+
+###
+
+### 4. Получить подключение по ID (замените {id} на реальный ID)
+GET {{baseUrl}}/connections/550e8400-e29b-41d4-a716-446655440000
+
+###
+
+### 5. Обновить подключение (замените {id} на реальный ID)
+PUT {{baseUrl}}/connections/550e8400-e29b-41d4-a716-446655440000
+Content-Type: application/json
+
+{
+  "name": "Production PostgreSQL Updated",
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "database": "mydb_v2",
+  "username": "postgres",
+  "password": "newpassword",
+  "ssl_mode": "require"
+}
+
+###
+
+### 6. Удалить подключение (замените {id} на реальный ID)
+DELETE {{baseUrl}}/connections/550e8400-e29b-41d4-a716-446655440000
+
+###
+
+### Примеры ошибок
+
+### Создать подключение с дублирующимся именем
+POST {{baseUrl}}/connections
+Content-Type: application/json
+
+{
+  "name": "Production PostgreSQL",
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "database": "mydb",
+  "username": "postgres",
+  "password": "password",
+  "ssl_mode": "disable"
+}
+
+###
+
+### Создать подключение с неверным типом
+POST {{baseUrl}}/connections
+Content-Type: application/json
+
+{
+  "name": "Invalid DB",
+  "type": "mongodb",
+  "host": "localhost",
+  "port": 27017,
+  "database": "test",
+  "username": "admin",
+  "password": "password",
+  "ssl_mode": "disable"
+}
+
+###
+
+### Создать подключение с неверным портом
+POST {{baseUrl}}/connections
+Content-Type: application/json
+
+{
+  "name": "Invalid Port",
+  "type": "postgres",
+  "host": "localhost",
+  "port": 99999,
+  "database": "mydb",
+  "username": "postgres",
+  "password": "password",
+  "ssl_mode": "disable"
+}
+
+###
+
+### Создать подключение без обязательных полей
+POST {{baseUrl}}/connections
+Content-Type: application/json
+
+{
+  "name": "Incomplete Connection",
+  "type": "postgres"
+}

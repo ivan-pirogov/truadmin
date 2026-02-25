@@ -1,0 +1,143 @@
+.accordion {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.accordion-item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+  border-radius: 6px;
+  margin: 2px 8px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  user-select: none;
+}
+
+.accordion-header:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+.accordion-header.active {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.accordion-chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  transition: transform 0.2s ease;
+}
+
+.accordion-chevron.expanded {
+  transform: rotate(90deg);
+}
+
+.accordion-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.accordion-label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.accordion-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.accordion-content > .accordion-item {
+  max-height: 2000px;
+  opacity: 1;
+}
+
+/* Уровни вложенности */
+.accordion-item-level-0 > .accordion-header {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.accordion-item-level-1 > .accordion-header {
+  font-size: 15px;
+  padding: 6px 12px;
+  margin: 0 8px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.accordion-item-level-2 > .accordion-header {
+  font-size: 14px;
+  padding: 6px 12px;
+  margin: 0 8px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.accordion-item-level-3 > .accordion-header {
+  font-size: 13px;
+  padding: 2px 12px;
+  margin: 0 8px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Анимация раскрытия */
+@keyframes expand {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 2000px;
+    opacity: 1;
+  }
+}
+
+@keyframes collapse {
+  from {
+    max-height: 2000px;
+    opacity: 1;
+  }
+  to {
+    max-height: 0;
+    opacity: 0;
+  }
+}
+
+/* Состояние раскрытия */
+.accordion-content.expanded {
+  max-height: 2000px;
+  opacity: 1;
+}
+
+/* Стили для разных уровней контента */
+.accordion-content-level-0,
+.accordion-content-level-1,
+.accordion-content-level-2 {
+  animation: expand 0.3s ease forwards;
+}

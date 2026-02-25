@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  height: 100vh;
+  background: #f5f7fa;
+}
+
+.resizer {
+  width: 5px;
+  background: transparent;
+  cursor: col-resize;
+  transition: background 0.2s;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.resizer:hover {
+  background: rgba(102, 126, 234, 0.3);
+}
+
+.resizer.resizing {
+  background: rgba(102, 126, 234, 0.5);
+}
+
+.resizer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -3px;
+  right: -3px;
+  bottom: 0;
+}
+
+body.resizing {
+  cursor: col-resize !important;
+  user-select: none;
+}
+
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.content {
+  flex: 1;
+  padding: 4px 4px 0 4px;
+  overflow-y: auto;
+}

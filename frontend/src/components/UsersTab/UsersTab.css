@@ -1,0 +1,227 @@
+.users-container {
+  padding: var(--spacing-xl);
+}
+
+.users-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-bottom: var(--spacing-xl); */
+}
+
+.users-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-800);
+  margin: 0;
+}
+
+/* Button styles use unified buttons.css */
+
+.error-banner {
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--color-danger-light);
+  border: 1px solid var(--color-danger);
+  border-radius: var(--radius-md);
+  color: var(--color-danger-dark);
+  margin-bottom: var(--spacing-xl);
+}
+
+.loading-container {
+  text-align: center;
+  padding: var(--spacing-4xl);
+  color: var(--color-gray-500);
+  font-size: var(--font-size-md);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px var(--spacing-xl);
+}
+
+.empty-icon {
+  color: var(--color-gray-300);
+  margin-bottom: var(--spacing-lg);
+}
+
+.empty-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-700);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.empty-description {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-500);
+  margin: 0;
+}
+
+/* Table Styles */
+.users-table-container {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.users-table thead {
+  background: var(--color-gray-50);
+}
+
+.users-table th {
+  padding: var(--spacing-md) var(--spacing-lg);
+  text-align: left;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gray-600);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--color-gray-200);
+}
+
+.users-table tbody tr {
+  border-bottom: 1px solid var(--color-gray-200);
+  transition: background var(--transition-base);
+}
+
+.users-table tbody tr:hover {
+  background: var(--color-gray-50);
+}
+
+.users-table td {
+  padding: var(--spacing-lg);
+  font-size: var(--font-size-base);
+  color: var(--color-gray-700);
+}
+
+.user-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.badge-you {
+  display: inline-block;
+  padding: 2px var(--spacing-sm);
+  background: var(--color-info-light);
+  color: var(--color-info-dark);
+  border-radius: var(--radius-xl);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+}
+
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-xl);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: capitalize;
+}
+
+.role-badge.role-admin {
+  background: var(--color-warning-light);
+  color: var(--color-warning-dark);
+}
+
+.role-badge.role-user {
+  background: var(--color-info-light);
+  color: var(--color-info-dark);
+}
+
+.date-cell {
+  color: var(--color-gray-500);
+  font-size: var(--font-size-sm);
+}
+
+/* Button icons - use styles from buttons.css */
+.action-buttons {
+  display: flex;
+  gap: 4px;
+}
+
+.action-buttons .btn-icon {
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  background: transparent;
+  color: var(--color-gray-600);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.action-buttons .btn-icon:hover {
+  background: var(--color-gray-100);
+  color: var(--color-gray-800);
+  border-color: var(--color-gray-200);
+}
+
+.action-buttons .btn-icon:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.action-buttons .btn-icon.btn-block {
+  color: var(--color-warning);
+}
+
+.action-buttons .btn-icon.btn-block:hover {
+  background: var(--color-warning-light);
+  border-color: var(--color-warning);
+}
+
+.action-buttons .btn-icon.btn-unblock {
+  color: var(--color-success);
+}
+
+.action-buttons .btn-icon.btn-unblock:hover {
+  background: var(--color-success-light);
+  border-color: var(--color-success);
+}
+
+.action-buttons .btn-outline-danger {
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+}
+
+/* Status badges */
+.status-active {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--color-success);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.status-blocked {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--color-danger);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Blocked row styling */
+.users-table tbody tr.blocked-row {
+  background: var(--color-warning-light);
+  opacity: 0.7;
+}
+
+.users-table tbody tr.blocked-row:hover {
+  background: var(--color-warning-light);
+  opacity: 1;
+}

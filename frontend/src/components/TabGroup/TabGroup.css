@@ -1,0 +1,127 @@
+.tab-group {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+.tab-group-header {
+  border-bottom: 1px solid #e5e7eb;
+  background: #f9fafb;
+  margin: 0;
+  padding: 0;
+}
+
+.tab-list {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 4px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.tab-list::-webkit-scrollbar {
+  height: 3px;
+}
+
+.tab-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tab-list::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 2px;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+  white-space: nowrap;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.tab:hover {
+  background: rgba(102, 126, 234, 0.05);
+  color: #374151;
+}
+
+.tab.active {
+  background: #ffffff;
+  color: #667eea;
+  border-bottom-color: #667eea;
+  font-weight: 500;
+}
+
+.tab-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 4px;
+}
+
+.tab-title {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.tab-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tab-close:hover {
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+}
+
+.tab-new {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-left: 4px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tab-new:hover {
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+}
+
+.tab-content {
+  flex: 1;
+  overflow: auto;
+  background: #ffffff;
+  padding: 0;
+  margin: 0;
+}

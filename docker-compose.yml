@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  truadmin:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: truadmin
+    ports:
+      - "8080:80"
+    environment:
+      # Server configuration
+      - SERVER_PORT=80
+      - GIN_MODE=release
+      
+      # Database configuration (external PostgreSQL server)
+      - DB_HOST=${DB_HOST:-truadmin-postgres-staging.cluster-c3ya260os7wd.us-west-2.rds.amazonaws.com}
+      - DB_PORT=${DB_PORT:-5432}
+      - DB_USERNAME=${DB_USERNAME:-truadmin_user}
+      - DB_PASSWORD=${DB_PASSWORD:-mB74Wp5$LL>j#g#l}
+      - DB_NAME=${DB_NAME:-truadmin}
+      
+      # JWT Secret (IMPORTANT: Change in production!)
+      - JWT_SECRET=${JWT_SECRET:-ff0dace183dc2c695c6d7fb4ba99ce4ea26442b6beb68e062cd8837aca3460c5}
+      
+      # Frontend build path
+      - FRONTEND_BUILD_PATH=/app/frontend/build
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:80/health"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+

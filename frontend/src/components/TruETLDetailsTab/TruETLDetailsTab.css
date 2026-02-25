@@ -1,0 +1,477 @@
+.truetl-details-tab {
+  height: 100%;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Панель действий (кнопки сохранения и сброса) */
+.truetl-actions-bar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  flex-shrink: 0;
+}
+
+/* Entity Edit Forms */
+.entity-edit-form {
+  padding: 20px;
+}
+
+.entity-edit-form .form-group {
+  margin-bottom: 16px;
+}
+
+.entity-edit-form .form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #374151;
+  font-size: 14px;
+}
+
+.entity-edit-form .form-group input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.entity-edit-form .form-group input:focus {
+  outline: none;
+  border-color: #9333ea;
+  box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.1);
+}
+
+.entity-edit-form .form-group input:disabled {
+  background-color: #f3f4f6;
+  cursor: not-allowed;
+}
+
+.entity-edit-form .form-error {
+  margin-top: 12px;
+  padding: 10px;
+  background-color: #fee2e2;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  color: #dc2626;
+  font-size: 14px;
+}
+
+.entity-edit-form .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.truetl-layout {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.truetl-left-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 40%;
+  min-width: 400px;
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.truetl-right-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.truetl-panel {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 250px;
+  flex-shrink: 0;
+}
+
+.truetl-panel-header {
+  padding: 12px 16px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.truetl-panel-header h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.truetl-panel-content {
+  padding: 16px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.truetl-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.truetl-table thead {
+  background: #f9fafb;
+}
+
+.truetl-table th {
+  padding: 8px;
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+.truetl-table td {
+  padding: 8px;
+  border-bottom: 1px solid #f3f4f6;
+  color: #1f2937;
+}
+
+.truetl-table tbody tr {
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.truetl-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.truetl-table tbody tr.selected {
+  background-color: #dbeafe;
+}
+
+/* Индикатор статуса через левый border первой колонки */
+.truetl-table tbody tr.row-status-updated td:first-child,
+.truetl-table tbody tr.row-status-modified td:first-child {
+  border-left: 4px solid #f59e0b; /* Оранжевый для обновленных/измененных */
+}
+
+.truetl-table tbody tr.row-status-updated.selected td:first-child,
+.truetl-table tbody tr.row-status-modified.selected td:first-child {
+  border-left-color: #d97706; /* Темнее для выделенных */
+}
+
+.truetl-table tbody tr.row-status-added td:first-child {
+  border-left: 4px solid #10b981; /* Зеленый для добавленных */
+}
+
+.truetl-table tbody tr.row-status-added.selected td:first-child {
+  border-left-color: #059669; /* Темнее для выделенных */
+}
+
+.truetl-table tbody tr.row-status-deleted td:first-child {
+  border-left: 4px solid #ef4444; /* Красный для удаленных */
+}
+
+.truetl-table tbody tr.row-status-deleted.selected td:first-child {
+  border-left-color: #dc2626; /* Темнее для выделенных */
+}
+
+/* Индикатор статуса для полей через левый border первой колонки */
+.field-mapping-table tbody tr.row-status-updated td:first-child,
+.field-mapping-table tbody tr.row-status-modified td:first-child {
+  border-left: 4px solid #f59e0b; /* Оранжевый для обновленных/измененных */
+}
+
+.field-mapping-table tbody tr.row-status-updated.selected td:first-child,
+.field-mapping-table tbody tr.row-status-modified.selected td:first-child {
+  border-left-color: #d97706; /* Темнее для выделенных */
+}
+
+.field-mapping-table tbody tr.row-status-added td:first-child {
+  border-left: 4px solid #10b981; /* Зеленый для добавленных */
+}
+
+.field-mapping-table tbody tr.row-status-added.selected td:first-child {
+  border-left-color: #059669; /* Темнее для выделенных */
+}
+
+.field-mapping-table tbody tr.row-status-deleted td:first-child {
+  border-left: 4px solid #ef4444; /* Красный для удаленных */
+}
+
+.field-mapping-table tbody tr.row-status-deleted.selected td:first-child {
+  border-left-color: #dc2626; /* Темнее для выделенных */
+}
+
+.truetl-panel-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.truetl-panel-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.truetl-panel-footer-right {
+  display: flex;
+  gap: 8px;
+}
+
+.mapping-config .config-sources-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.mapping-config .config-sources-row .config-section {
+  flex: 1;
+  min-width: 0;
+}
+
+.mapping-config {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.config-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.config-section label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 14px;
+}
+
+.config-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 6px;
+}
+
+.config-details div {
+  font-size: 13px;
+  color: #1f2937;
+}
+
+.config-details strong {
+  color: #6b7280;
+  margin-right: 8px;
+}
+
+.field-mapping-table {
+  font-size: 11px;
+}
+
+.field-mapping-table th,
+.field-mapping-table td {
+  padding: 4px 6px;
+  vertical-align: middle;
+}
+
+
+.field-mapping-table input[type="checkbox"] {
+  cursor: pointer;
+  margin: 0;
+}
+
+.field-mapping-table .btn-icon-xs {
+  padding: 2px;
+  min-width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.field-mapping-table .btn-icon-xs svg {
+  flex-shrink: 0;
+}
+
+.field-actions {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Индикатор загрузки */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(2px);
+}
+
+.loading-spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #e5e7eb;
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #374151;
+  text-align: center;
+  padding: 20px;
+}
+
+.error-banner {
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 12px 20px;
+  border-left: 3px solid #dc2626;
+  margin: 16px;
+  border-radius: 6px;
+}
+
+.empty-state-text {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.empty-table-cell {
+  text-align: center;
+  padding: 20px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Field Edit Modal Styles */
+.field-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.field-edit-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-edit-form label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.field-edit-form label .required {
+  color: #dc2626;
+}
+
+.field-edit-form input[type="text"],
+.field-edit-form input[type="number"] {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.15s;
+}
+
+.field-edit-form input[type="text"]:focus,
+.field-edit-form input[type="number"]:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.field-edit-form input[type="text"].error,
+.field-edit-form input[type="number"].error {
+  border-color: #dc2626;
+}
+
+.field-edit-form .error-message {
+  font-size: 12px;
+  color: #dc2626;
+  margin-top: -4px;
+}
+
+.field-edit-form .checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.field-edit-form .checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.field-edit-form .modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+
